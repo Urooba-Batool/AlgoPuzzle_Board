@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="space-y-8 animate-fade-in-up">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Master Algorithms Visually
+            </h1>
+            <p class="hero-description">
+                Welcome to the Algo Puzzle Board. Interactive visualizations for classic algorithmic problems. Select a module below to begin your journey into the mind of the computer.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modules Grid - 3 cards per row -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1400px;">
+        <!-- N-Queens Card -->
+        <a href="@Url.Action("Index", "NQueens")" class="module-card">
+            <div class="module-card-glow" style="background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);"></div>
+            <div class="module-card-content">
+                <div class="module-icon" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; font-size: 2rem; margin-bottom: 1rem;">
+                    ♛
+                </div>
+                <h3 class="module-title">N-Queens Problem</h3>
+                <p class="module-description">
+                    Place N queens on an NxN chessboard so no two queens attack each other. Visualize Warnsdorff's heuristic.
+                </p>
+                <div class="module-badge" style="color: #a78bfa; text-transform: uppercase; font-size: 0.75rem; margin-top: 1rem;">Backtracking</div>
+            </div>
+        </a>
+
+        <!-- Knight's Tour Card -->
+        <a href="@Url.Action("Index", "KnightsTour")" class="module-card">
+            <div class="module-card-glow" style="background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);"></div>
+            <div class="module-card-content">
+                <div class="module-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 2rem; margin-bottom: 1rem;">
+                    ♞
+                </div>
+                <h3 class="module-title">Knight's Tour</h3>
+                <p class="module-description">
+                    Move a knight to every square on the board exactly once. Discover Warnsdorff's heuristic.
+                </p>
+                <div class="module-badge" style="color: #34d399; text-transform: uppercase; font-size: 0.75rem; margin-top: 1rem;">Graph Traversal</div>
+            </div>
+        </a>
+
+        <!-- Graph Coloring Card -->
+        <a href="@Url.Action("Index", "GraphColoring")" class="module-card">
+            <div class="module-card-glow" style="background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);"></div>
+            <div class="module-card-content">
+                <div class="module-icon" style="background: rgba(249, 115, 22, 0.15); color: #fb923c; font-size: 2rem; margin-bottom: 1rem;">
+                    🎨
+                </div>
+                <h3 class="module-title">Graph Coloring</h3>
+                <p class="module-description">
+                    Color vertices of a graph such that no two adjacent vertices share the same color.
+                </p>
+                <div class="module-badge" style="color: #fb923c; text-transform: uppercase; font-size: 0.75rem; margin-top: 1rem;">Greedy Algorithm</div>
+            </div>
+        </a>
+
+        <!-- TSP Card -->
+        <a href="@Url.Action("Index", "TSP")" class="module-card">
+            <div class="module-card-glow" style="background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);"></div>
+            <div class="module-card-content">
+                <div class="module-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-size: 2rem; margin-bottom: 1rem;">
+                    🗺️
+                </div>
+                <h3 class="module-title">Travelling Salesman</h3>
+                <p class="module-description">
+                    Find the shortest possible route that visits each city and returns to the origin city.
+                </p>
+                <div class="module-badge" style="color: #60a5fa; text-transform: uppercase; font-size: 0.75rem; margin-top: 1rem;">Optimization</div>
+            </div>
+        </a>
+
+        <!-- Huffman Card -->
+        <a href="@Url.Action("Index", "Huffman")" class="module-card">
+            <div class="module-card-glow" style="background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);"></div>
+            <div class="module-card-content">
+                <div class="module-icon" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; font-size: 2rem; margin-bottom: 1rem;">
+                    🌲
+                </div>
+                <h3 class="module-title">Huffman Coding</h3>
+                <p class="module-description">
+                    Build the optimal prefix code tree for lossless data compression.
+                </p>
+                <div class="module-badge" style="color: #f472b6; text-transform: uppercase; font-size: 0.75rem; margin-top: 1rem;">Greedy Algorithm</div>
+            </div>
+        </a>
+    </div>
+</div>

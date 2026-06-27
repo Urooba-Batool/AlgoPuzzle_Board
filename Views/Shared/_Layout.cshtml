@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AlgoPuzzleBoard</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    AP
+                </div>
+                <h1 class="sidebar-title">Puzzle Board</h1>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Home")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                            <span class="nav-icon">🏠</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <div class="nav-section-title">Modules</div>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "NQueens")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "NQueens" ? "active" : "")">
+                            <span class="nav-icon">♛</span>
+                            <span>N-Queens</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "KnightsTour")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "KnightsTour" ? "active" : "")">
+                            <span class="nav-icon">♞</span>
+                            <span>Knight's Tour</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "GraphColoring")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "GraphColoring" ? "active" : "")">
+                            <span class="nav-icon">🎨</span>
+                            <span>Graph Coloring</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "TSP")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "TSP" ? "active" : "")">
+                            <span class="nav-icon">🗺️</span>
+                            <span>TSP</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Huffman")" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Huffman" ? "active" : "")">
+                            <span class="nav-icon">🌲</span>
+                            <span>Huffman Coding</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="footer-badge">
+                    Algo Puzzle Board v1.0
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <script src="~/js/common.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

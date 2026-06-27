@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Travelling Salesman Problem";
+}
+
+<div class="space-y-6 animate-fade-in-up">
+    <!-- Header -->
+    <div class="glass-panel" style="padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h1 style="font-size: 1.875rem; font-weight: bold; background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.25rem;">
+                Travelling Salesman
+            </h1>
+            <p style="color: #64748b; font-size: 0.875rem;">Nearest Neighbor Heuristic</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <button id="resetBtn" class="btn btn-secondary">Clear Map</button>
+            <button id="solveBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);">Calculate Route</button>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+        <!-- Map Area -->
+        <div class="glass-panel" style="padding: 2rem; border-radius: 1rem; min-height: 500px;">
+            <div id="mapContainer" style="position: relative; width: 100%; height: 100%; min-height: 500px; background: rgba(10, 25, 41, 0.5); border-radius: 0.5rem; cursor: crosshair; overflow: hidden;">
+                <!-- Background Grid - Fill entire container -->
+                <div style="position: absolute; inset: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr); pointer-events: none; opacity: 0.2;">
+                    @for(int i = 0; i < 100; i++)
+                    {
+                        <div style="border: 1px solid #334155;"></div>
+                    }
+                </div>
+
+                <svg id="tspSvg" style="position: absolute; inset: 0; width: 100%; height: 100%;"></svg>
+
+                <div id="emptyMessage" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <div style="color: #94a3b8; font-size: 0.875rem;">
+                        Click anywhere to add cities
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="glass-panel" style="padding: 1.5rem; border-radius: 1rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <div>
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: white; margin-bottom: 1rem;">Route Stats</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: #94a3b8;">
+                        <span>Cities:</span>
+                        <span id="cityCount" style="color: #60a5fa; font-weight: 600;">0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: #94a3b8;">
+                        <span>Total Distance:</span>
+                        <span id="totalDistance" style="color: #06b6d4; font-weight: 600;">0 px</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: white; margin-bottom: 0.75rem;">Algorithm</h3>
+                <p style="font-size: 0.875rem; color: #94a3b8; line-height: 1.6; margin-bottom: 0.5rem;">
+                    The <strong style="color: white;">Nearest Neighbor</strong> algorithm starts at a random city and repeatedly visits the nearest unvisited city until all have been visited.
+                </p>
+                <p style="font-size: 0.75rem; color: #64748b;">
+                    Note: This is a heuristic and may not always find the absolute optimal path, but it's very fast.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/tsp.js"></script>
+}

@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Knight's Tour";
+}
+
+<div class="space-y-6 animate-fade-in-up">
+    <div class="glass-panel" style="padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h1 style="font-size: 1.875rem; font-weight: bold; background: linear-gradient(135deg, #34d399 0%, #14b8a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Knight's Tour
+            </h1>
+            <p style="color: #9ca3af; margin-top: 0.25rem;">Warnsdorff's Heuristic (Graph Traversal)</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            <button id="solveBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);">Start Tour</button>
+        </div>
+    </div>
+
+    <div class="nqueens-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 1rem; display: flex; justify-center; align-items: center; min-height: 500px;">
+            <div style="position: relative; width: 500px; height: 500px;">
+                <!-- Chessboard Grid -->
+                <div id="knightBoard" style="display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr); width: 100%; height: 100%; gap: 1px; background: #1e293b; padding: 4px; border-radius: 0.5rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 4px solid #334155; position: relative; z-index: 20;">
+                </div>
+                
+                <!-- SVG Path Overlay -->
+                <svg id="pathSvg" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30;">
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#34d399" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.5rem; border-radius: 1rem;">
+            <div>
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: white; margin-bottom: 0.5rem;">Tour Status</h3>
+                <div class="stat-item" style="justify-content: space-between; margin-bottom: 1rem;">
+                    <span>Visited:</span>
+                    <span id="visited" style="font-family: monospace; color: #34d399; font-size: 1.125rem;">0 / 64</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 1.5rem; padding-top: 1rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: white; margin-bottom: 0.5rem;">Warnsdorff's Rule</h3>
+                <p style="font-size: 0.875rem; color: #9ca3af;">
+                    Always move to the square from which the knight has the <strong style="color: white;">fewest onward moves</strong>.
+                </p>
+                <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: #9ca3af;">
+                    Click any cell to set starting position.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/knightstour.js"></script>
+}
